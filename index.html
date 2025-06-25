@@ -3,128 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHIBE 2049 — MemeID from the Future</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <title>SHIBE MemeID – Emerged in 2049</title>
+  <link rel="icon" type="image/png" href="/logo.SHIBE.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Space Grotesk', sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
       padding: 2rem;
       text-align: center;
     }
-    .logo {
-      width: 120px;
-      margin-bottom: 1.5rem;
-    }
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-top: 1rem;
     }
     p {
-      font-size: 1.1rem;
       max-width: 720px;
-      line-height: 1.7;
+      line-height: 1.6;
+      margin: 0.8rem 0;
+      font-size: 1.1rem;
+    }
+    .logo {
+      width: 90px;
       margin-bottom: 1rem;
     }
     .button-group {
       display: flex;
-      gap: 1rem;
       flex-wrap: wrap;
+      gap: 1rem;
       margin-top: 2rem;
     }
     .btn {
-      padding: 0.8rem 1.6rem;
-      border: none;
-      border-radius: 50px;
-      background: #ff6600;
-      color: #fff;
+      background-color: #ff6600;
+      color: white;
+      padding: 0.9rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
       font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
     .btn:hover {
-      background: #ff8533;
-    }
-    #walletAddress {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #555;
+      background-color: #ff8533;
     }
     .meme-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
       width: 100%;
-      max-width: 700px;
+      max-width: 960px;
     }
     .meme-grid img {
       width: 100%;
       border-radius: 12px;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 12px #222;
     }
     .meme-grid img:hover {
       transform: scale(1.05);
     }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
-  <img src="logo.SHIBE.png" alt="SHIBE Logo" class="logo" />
 
-  <h1>This meme was not created. It emerged in 2049.</h1>
+  <img src="/logo.SHIBE.png" alt="SHIBE Logo" class="logo" />
+  <h1>This meme was not created. It emerged in <strong>2049</strong>.</h1>
   <p>SHIBE doesn’t need to be explained. It appears — when your soul recognizes a digital feeling.</p>
   <p>It’s not a token. Not a trend. It’s a trace of identity — encoded in meme form, remembered forever.</p>
 
   <div class="button-group">
-    <a href="https://memeshibe.ai/mint" target="_blank"><button class="btn">🚀 MINT MEMEID</button></a>
-    <button class="btn" onclick="alert('Coming Soon')">🔥 HOLD SHIBE</button>
-    <button class="btn" id="connectWallet">🐱 CONNECT WALLET</button>
+    <a href="https://memeshibe.ai/mint" class="btn">🚀 MINT MEMEID</a>
+    <a href="#" class="btn">🔥 HOLD SHIBE</a>
+    <button id="connectWallet" class="btn">😺 CONNECT WALLET</button>
   </div>
 
-  <p id="walletAddress"></p>
+  <p id="walletAddress" style="margin-top: 1rem;"></p>
 
   <div class="meme-grid">
-    <img src="meme1.png" alt="Meme 1">
-    <img src="meme2.png" alt="Meme 2">
-    <img src="meme3.png" alt="Meme 3">
-    <img src="meme4.png" alt="Meme 4">
-    <img src="meme5.png" alt="Meme 5">
+    <img src="/assets/meme1.webp" alt="Meme 1" />
+    <img src="/assets/meme2.webp" alt="Meme 2" />
+    <img src="/assets/meme3.webp" alt="Meme 3" />
+    <img src="/assets/meme4.webp" alt="Meme 4" />
+    <img src="/assets/meme5.webp" alt="Meme 5" />
   </div>
 
-  <footer>
-    &copy; 2049 SHIBE. From the Future. Built on SoulChain.
-  </footer>
+  <footer>© 2049 SHIBE. From The Future. Built on SoulChain.</footer>
 
   <script>
     async function connectWallet() {
       if (window.ethereum) {
         try {
           const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-          document.getElementById('walletAddress').innerText = 'Connected: ' + accounts[0];
+          document.getElementById('walletAddress').innerText = "Connected: " + accounts[0];
         } catch (err) {
-          console.error('Wallet connection failed', err);
+          console.error("Wallet connect failed", err);
         }
       } else {
-        alert('Please install MetaMask!');
+        alert("MetaMask not found. Please install it.");
       }
     }
     document.getElementById('connectWallet').addEventListener('click', connectWallet);
   </script>
+
 </body>
 </html>
