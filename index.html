@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHIBE MemeID – Feel, don’t explain</title>
+  <link rel="icon" type="image/png" href="/logo.SHIBE.png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
   <style>
     body {
@@ -37,10 +38,23 @@
       border-radius: 8px;
       font-size: 1rem;
       cursor: pointer;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
     .btn:hover {
       background-color: #ff8533;
+    }
+    .mint-btn {
+      background-color: #00e676;
+      color: #000;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    .mint-btn:hover {
+      background-color: #33f08f;
     }
     .logo {
       max-width: 100px;
@@ -50,32 +64,41 @@
 </head>
 <body>
   <img src="/logo.SHIBE.png" alt="SHIBE Logo" class="logo" />
+
   <h1>"Does this meme feel true to you?"</h1>
+
   <p>
     SHIBE doesn’t need to be understood.<br>
     Just once — when you stop scrolling because it feels like you.
   </p>
+
   <p>
     SHIBE isn't here to go viral. Not to be analyzed. Not to be shared.<br>
     It's here to be kept — by you.
   </p>
+
+  <a href="https://memeshibe.ai/mint" class="mint-btn" target="_blank">MINT MEMEID</a>
+
   <button class="btn">Hold SHIBE</button>
-<button id="connectWallet" class="btn">Connect Wallet</button>
-<p id="walletAddress" style="margin-top: 1rem;"></p>
+  <button id="connectWallet" class="btn">Connect Wallet</button>
+  <p id="walletAddress" style="margin-top: 1rem;"></p>
 
-<script>
-  async function connectWallet() {
-    if (window.ethereum) {
-      try {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        document.getElementById('walletAddress').innerText = "Connected: " + accounts[0];
-      } catch (err) {
-        console.error("Connection failed:", err);
+  <script>
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const short = accounts[0].slice(0, 6) + '...' + accounts[0].slice(-4);
+          document.getElementById('walletAddress').innerText = "Connected: " + short;
+        } catch (err) {
+          console.error("Connection failed:", err);
+        }
+      } else {
+        alert("MetaMask not detected. Please install it!");
       }
-    } else {
-      alert("MetaMask not detected. Please install it!");
     }
-  }
 
-  document.getElementById('connectWallet').addEventListener('click', connectWallet);
-</script>
+    document.getElementById('connectWallet').addEventListener('click', connectWallet);
+  </script>
+</body>
+</html>
