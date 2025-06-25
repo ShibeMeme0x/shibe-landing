@@ -3,85 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHIBE MemeID – Feel, don’t explain</title>
+  <title>SHIBE 2049 – Meme From The Future</title>
   <link rel="icon" type="image/png" href="/logo.SHIBE.png" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0d0d0d;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 1.2rem;
-    }
-    p {
-      max-width: 680px;
-      text-align: center;
-      margin-bottom: 1.2rem;
-      font-size: 1.15rem;
-      line-height: 1.6;
-    }
-    .btn {
-      background-color: #ff6600;
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    .btn:hover {
-      background-color: #ff8533;
-    }
-    .mint-btn {
-      background-color: #00e676;
-      color: #000;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1rem;
-      margin-top: 1rem;
-    }
-    .mint-btn:hover {
-      background-color: #33f08f;
-    }
-    .logo {
-      max-width: 100px;
-      margin-bottom: 2rem;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <img src="/logo.SHIBE.png" alt="SHIBE Logo" class="logo" />
+  <div class="bg-glow"></div>
 
-  <h1>"Does this meme feel true to you?"</h1>
+  <img src="/logo.SHIBE.png" alt="SHIBE 2049" class="logo" />
+
+  <h1>"This meme was not created. It emerged in 2049."</h1>
 
   <p>
-    SHIBE doesn’t need to be understood.<br>
-    Just once — when you stop scrolling because it feels like you.
+    SHIBE doesn’t need to be explained. It just appears —  
+    when your soul recognizes a digital feeling.
   </p>
 
   <p>
-    SHIBE isn't here to go viral. Not to be analyzed. Not to be shared.<br>
-    It's here to be kept — by you.
+    It's not a token. Not a trend. It's a trace of identity —  
+    encoded in meme form, remembered forever.
   </p>
 
-  <a href="https://memeshibe.ai/mint" class="mint-btn" target="_blank">MINT MEMEID</a>
+  <div class="cta">
+    <a href="https://memeshibe.ai/mint" class="mint-btn" target="_blank">🚀 MINT MEMEID</a>
+    <button class="btn">🔥 HOLD SHIBE</button>
+    <button id="connectWallet" class="btn">🦊 CONNECT WALLET</button>
+    <p id="walletAddress"></p>
+  </div>
 
-  <button class="btn">Hold SHIBE</button>
-  <button id="connectWallet" class="btn">Connect Wallet</button>
-  <p id="walletAddress" style="margin-top: 1rem;"></p>
+  <p class="quote-line">2049. No country. Just code and soul.</p>
+
+  <footer>
+    &copy; 2049 SHIBE. From The Future. Built on SoulChain.
+  </footer>
 
   <script>
     async function connectWallet() {
@@ -91,10 +46,10 @@
           const short = accounts[0].slice(0, 6) + '...' + accounts[0].slice(-4);
           document.getElementById('walletAddress').innerText = "Connected: " + short;
         } catch (err) {
-          console.error("Connection failed:", err);
+          alert("Connection failed.");
         }
       } else {
-        alert("MetaMask not detected. Please install it!");
+        alert("MetaMask not detected.");
       }
     }
 
