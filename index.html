@@ -60,5 +60,22 @@
     It's here to be kept — by you.
   </p>
   <button class="btn">Hold SHIBE</button>
-</body>
-</html>
+<button id="connectWallet" class="btn">Connect Wallet</button>
+<p id="walletAddress" style="margin-top: 1rem;"></p>
+
+<script>
+  async function connectWallet() {
+    if (window.ethereum) {
+      try {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        document.getElementById('walletAddress').innerText = "Connected: " + accounts[0];
+      } catch (err) {
+        console.error("Connection failed:", err);
+      }
+    } else {
+      alert("MetaMask not detected. Please install it!");
+    }
+  }
+
+  document.getElementById('connectWallet').addEventListener('click', connectWallet);
+</script>
