@@ -3,39 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SHIBE 2049 – Meme From The Future</title>
+  <title>SHIBE 2049 – Meme With Soul</title>
   <link rel="icon" type="image/png" href="/logo.SHIBE.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg-glow"></div>
-
-  <img src="/logo.SHIBE.png" alt="SHIBE 2049" class="logo" />
+  <img src="/logo.SHIBE.png" alt="SHIBE Logo" class="logo" />
 
   <h1>"This meme was not created. It emerged in 2049."</h1>
 
   <p>
-    SHIBE doesn’t need to be explained. It just appears —  
-    when your soul recognizes a digital feeling.
+    SHIBE doesn’t need to be explained. It just appears — when your soul recognizes a digital feeling.
   </p>
-
   <p>
-    It's not a token. Not a trend. It's a trace of identity —  
-    encoded in meme form, remembered forever.
+    It's not a token. Not a trend. It's a trace of identity — encoded in meme form, remembered forever.
   </p>
 
-  <div class="cta">
-    <a href="https://memeshibe.ai/mint" class="mint-btn" target="_blank">🚀 MINT MEMEID</a>
-    <button class="btn">🔥 HOLD SHIBE</button>
-    <button id="connectWallet" class="btn">🦊 CONNECT WALLET</button>
-    <p id="walletAddress"></p>
+  <div class="cta-buttons">
+    <a href="https://memeshibe.ai/mint" class="btn green" target="_blank">🚀 MINT MEMEID</a>
+    <button class="btn orange">🔥 HOLD SHIBE</button>
+    <button id="connectWallet" class="btn blue">🦊 CONNECT WALLET</button>
   </div>
 
-  <p class="quote-line">2049. No country. Just code and soul.</p>
+  <p id="walletAddress" class="wallet-display"></p>
 
   <footer>
-    &copy; 2049 SHIBE. From The Future. Built on SoulChain.
+    <p>© 2049 SHIBE. From The Future. Built on SoulChain.</p>
   </footer>
 
   <script>
@@ -43,17 +36,6 @@
       if (window.ethereum) {
         try {
           const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-          const short = accounts[0].slice(0, 6) + '...' + accounts[0].slice(-4);
-          document.getElementById('walletAddress').innerText = "Connected: " + short;
+          document.getElementById('walletAddress').innerText = "Connected: " + accounts[0];
         } catch (err) {
-          alert("Connection failed.");
-        }
-      } else {
-        alert("MetaMask not detected.");
-      }
-    }
-
-    document.getElementById('connectWallet').addEventListener('click', connectWallet);
-  </script>
-</body>
-</html>
+          console.error("Connection failed:", err);
